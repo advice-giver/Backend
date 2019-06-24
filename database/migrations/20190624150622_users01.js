@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
       tbl.boolean('adviceGiver').notNullable(); //.defaultTo(false)
       tbl.string('expertise').nullable();
       tbl.integer('yearsOfExperience').nullable();
+      tbl.integer('age').nullable();
     })
   };
   

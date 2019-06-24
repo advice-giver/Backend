@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const postAdvice = require('../models/postAdviceModel.js');
 const restricted = require('../auth/restricted.js');
-const adviceModel = require('../model/postAdviceModel.js');
+const adviceModel = require('../models/postAdviceModel.js');
 
 
 
