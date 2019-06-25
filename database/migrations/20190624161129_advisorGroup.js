@@ -18,8 +18,9 @@ exports.up = function(knex, Promise) {
         .inTable('users')
         .onDelete('CASCADE')
         .onUpdate('CASCADE');
+    })
 };
 
 exports.down = function(knex, Promise) {
-  
+  return knex.schema.dropTableIfExists('advisorsGroup');
 };
