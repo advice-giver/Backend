@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const userModel = require('../models/userModel.js');
-
+const restricted = require('../auth/restricted.js')
 //users path..
 
 
@@ -28,7 +28,7 @@ router.get('/:id', restricted, (req, res) => {
     })
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:id', restricted, (req, res) => {
     const id = req.params.id;
     
     userModel
@@ -41,7 +41,7 @@ router.put('/:id', (req, res) => {
     })
 })
 
-route.delete('/:id', restricted, (req, res) => {
+router.delete('/:id', restricted, (req, res) => {
     const id = req.params.id;
 
 
@@ -55,6 +55,7 @@ route.delete('/:id', restricted, (req, res) => {
     })
 })
 
+module.exports = router;
 
 
 
@@ -64,8 +65,7 @@ route.delete('/:id', restricted, (req, res) => {
 
 
 
-
-
+//findById,
 // find,
 // add,
 // update,
