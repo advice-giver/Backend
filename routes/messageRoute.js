@@ -21,17 +21,10 @@ router.post('/', restricted, (req, res) => {
 })
 
 
-//ability to edit messages.
-router.put('/:id', restricted, (req, res) => { //NEED TO REVISIT..
-    // const id = req.params.id; //id of user...
-    // const messageId = req.body.id; //id of message..
-    // const message = messageModel.findByMessageId(messageId) 
-    // const changes = req.body //changes to be made to message...
-    // const user_id = req.body.user_id
+//edit works..
+router.put('/:id', restricted, (req, res) => { 
     const id = req.params.id; //message id.  
-    // if ( id !== user_id) {
-    //     return res.status(400).json({ message: 'You have been denied acess to updating this post' })
-    // }
+  
     messageModel    
         .update(req.body, id)
         .then(result => {
@@ -45,7 +38,7 @@ router.put('/:id', restricted, (req, res) => { //NEED TO REVISIT..
     
 
 
-//delete works.
+//delete works..
 router.delete('/:id', restricted, (req, res) => {
     const id = req.params.id; //id of message
     messageModel
