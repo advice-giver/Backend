@@ -16,7 +16,7 @@ router.post('/', restricted, (req, res) => {
         .then(result => {
             res.status(201).json(result)
         })
-})
+});
 
 
 router.delete('/', restricted, (req, res) => {
@@ -32,10 +32,11 @@ router.delete('/', restricted, (req, res) => {
         .catch(error => {
             res.status(500).json({ message: 'Internal Server Error.'})
         })
-})
+    }
+});
 
 
 
 
 
-export.moduels = router;
+module.exports = router;
