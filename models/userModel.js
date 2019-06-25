@@ -6,8 +6,13 @@ module.exports = {
     findById,
     add,
     update,
-    remove
+    remove,
+    findUser
 }
+function findUser(username) {
+    return db('users').where({ username }).first();
+};
+
 function add(user) {
     return db('users').insert(user);
 };
