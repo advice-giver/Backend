@@ -1,3 +1,3 @@
 module.exports = {
-    jwtSecret: 'Here is the super secret used in jsonwebtokens'
+    jwtSecret: process.env.JWT_SECRET || 'Here is the super secret used in jsonwebtokens'  
 }

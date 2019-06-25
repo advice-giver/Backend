@@ -1,5 +1,5 @@
-
-const dbConnection = process.env.DATABASE_URL;
+const localpg = { host: 'localhost', database: 'test', user: 'test', password: 'test'}
+const dbConnection = process.env.DATABASE_URL || localpg;
 
 module.exports = {
 
