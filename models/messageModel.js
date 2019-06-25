@@ -6,7 +6,8 @@ module.exports = {
     update,
     remove,
     findAll,
-    findByMessageId
+    findByMessageId,
+    getByUserId
 }
 
 function add(message) {
@@ -26,7 +27,7 @@ function remove(id) {
 
 
 function findByMessageId(id) {
-    db('messages').where({ id })
+    return db('messages').where({ id });
 }
 
 
@@ -39,3 +40,6 @@ async function findAll() {
     return notPrivate; //returns all messages that are not marked as private!!!
 }
 
+function getByUserId(user_id) {
+    return db('messages').where({ user_id })
+}

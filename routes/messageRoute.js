@@ -74,6 +74,19 @@ router.get('/', restricted,  (req, res) => {
     })
 })
 
+router.get('/:id', restricted, (req, res) => {
+    const id = req.params.id;
+
+    messageModel
+    .getByUserId(id)
+    .then(result => {
+        res.json(result)
+    })
+    .catch(error => {
+        res.status(500).json({ message: 'Internal Server Error'})
+    })
+})
+
 
 
 // need another router that gets the messages that are priate from users which have the advisor as an advisor group...
