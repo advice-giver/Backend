@@ -22,14 +22,17 @@ router.post('/', restricted, (req, res) => {
 
 
 //ability to edit messages.
-router.put('/:id', restricted, (req, res) => {
-    const id = req.params.id; //id of user...
-    const messageId = req.body.id; //id of message..
-    const message = messageModel.findByMessageId(messageId) 
-    const changes = req.body //changes to be made to message...
-    if ( id !== messageId) {
-        return res.status(400).json({ message: 'You have been denied acces to deleting this post' })
-    }
+router.put('/:id', restricted, (req, res) => { //NEED TO REVISIT..
+    // const id = req.params.id; //id of user...
+    // const messageId = req.body.id; //id of message..
+    // const message = messageModel.findByMessageId(messageId) 
+    // const changes = req.body //changes to be made to message...
+    // const user_id = req.body.user_id
+    const id = req.params.id; //message id.  
+    const changes = req.params.body;
+    // if ( id !== user_id) {
+    //     return res.status(400).json({ message: 'You have been denied acess to updating this post' })
+    // }
     messageModel    
         .update(changes, id)
         .then(result => {
@@ -43,13 +46,9 @@ router.put('/:id', restricted, (req, res) => {
     
 
 
-
+//delete works.
 router.delete('/:id', restricted, (req, res) => {
-    const id = req.params.id; //id of user
-    const messageId = req.body.id;
-    if (req.params.id !== user_id) {
-        return res.status(400).json({ message: 'You are not authorized to make this change.'})
-    }
+    const id = req.params.id; //id of message
     messageModel
     .remove(id)
     .then(result => {

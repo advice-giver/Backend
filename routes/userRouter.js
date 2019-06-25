@@ -3,7 +3,7 @@ const userModel = require('../models/userModel.js');
 const restricted = require('../auth/restricted.js')
 //users path..
 
-
+//works
 router.get('/', restricted, (req, res) => {
     userModel
     .findAll()
@@ -24,10 +24,11 @@ router.get('/:id', restricted, (req, res) => {
         res.json(result)
     })
     .catch(error => {
+        console.error(error)
         res.status(500).json({ message: 'Internal Server Error'})
     })
 })
-
+//works
 router.put('/:id', restricted, (req, res) => {
     const id = req.params.id;
     
@@ -40,7 +41,7 @@ router.put('/:id', restricted, (req, res) => {
         res.status(500).json({ message: 'Internal Server Error'})
     })
 })
-
+//works
 router.delete('/:id', restricted, (req, res) => {
     const id = req.params.id;
 

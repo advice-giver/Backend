@@ -24,9 +24,11 @@ function remove(id) {
 //     return db('messages').where({ username }).first();
 // };
 
+
 function findByMessageId(id) {
     db('messages').where({ id })
 }
+
 
 async function findAll() {
     let messages = await db('messages')
@@ -36,3 +38,4 @@ async function findAll() {
 
     return notPrivate; //returns all messages that are not marked as private!!!
 }
+
