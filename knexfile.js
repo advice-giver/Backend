@@ -1,4 +1,6 @@
 
+const dbConnection = process.env.DATABASE_URL;
+
 module.exports = {
 
     development: {
@@ -32,12 +34,8 @@ module.exports = {
     // },
   
     production: {
-      client: 'postgresql',
-      connection: {
-        database: 'AdviceGiverDatabase',
-        user:     'username',
-        password: 'password'
-      },
+      client: 'pg',
+      connection: dbConnection,
       migrations: {
         directory: './database/migrations'
       },
