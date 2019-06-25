@@ -29,12 +29,11 @@ router.put('/:id', restricted, (req, res) => { //NEED TO REVISIT..
     // const changes = req.body //changes to be made to message...
     // const user_id = req.body.user_id
     const id = req.params.id; //message id.  
-    const changes = req.params.body;
     // if ( id !== user_id) {
     //     return res.status(400).json({ message: 'You have been denied acess to updating this post' })
     // }
     messageModel    
-        .update(changes, id)
+        .update(req.body, id)
         .then(result => {
             res.json(result)
         })
@@ -74,6 +73,8 @@ router.get('/', restricted,  (req, res) => {
     })
 })
 
+
+//gets the messages by the user in order to display for the user logged in...
 router.get('/:id', restricted, (req, res) => {
     const id = req.params.id;
 
