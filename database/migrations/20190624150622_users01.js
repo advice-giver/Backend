@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
       tbl.integer('yearsOfExperience').nullable();
       tbl.integer('age').nullable();
       tbl.string('email').notNullable();
+      tbl.string('img').nullable();
     })
   };
   
