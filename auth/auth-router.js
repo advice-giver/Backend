@@ -5,6 +5,7 @@ const secret = require('../config/secrets.js');
 const userModel = require('../models/userModel.js');
 
 
+
 router.post('/register', (req, res) => {
     let user = req.body;
     let advice = req.body.adviceGiver
@@ -20,14 +21,14 @@ router.post('/register', (req, res) => {
             res.status(418).json({ messge: 'The user is missing information in the request.'})
         }
     }
-    console.log(req.body)
+    // console.log(req.body)
     userModel
     .add(req.body)
     .then(result => {
         res.status(201).json(result)
     })
     .catch(error => {
-        console.error(error)
+        // console.error(error)
         res.status(500).json({ message: 'Internal Server Error.'})
     })
         
