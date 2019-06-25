@@ -20,7 +20,7 @@ router.post('/register', (req, res) => {
             res.status(418).json({ messge: 'The user is missing information in the request.'})
         }
     }
-
+    console.log(req.body)
     userModel
     .add(req.body)
     .then(result => {
@@ -51,6 +51,7 @@ router.post('/login', (req,res) => {
         }
     })
     .catch(error => {
+        console.error(error)
         res.status(500).json(error)
     })
    
