@@ -3,7 +3,7 @@ const db = require('../database/dbConfig.js');
 
 module.exports = {
     findAll,
-    find,
+    findById,
     add,
     update,
     remove
@@ -20,10 +20,10 @@ function remove(id) {
     return db('users').where({ id }).del();
 };
 
-function find(id) {
+function findById(id) {
     return db('users').where({ id }).first();
 };
 
 function findAll() {
     return db('users')
-}
+};
