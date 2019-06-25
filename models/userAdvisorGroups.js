@@ -2,9 +2,9 @@ const db = require('../database/dbConfig.js');
 
 module.exports = {
     add,
-    delete,
     get,
-    find
+    find,
+    remove
 
 }
 
@@ -14,9 +14,9 @@ function add(users) {
 
 async function find(user) {
     let table = await db('advisorGroup')
-}
+};
 
-async function delete(user) {
+async function remove(user) {
     let table = await db('advisorGroup')
     return db('advisorsGroup').where({ id }).del()
-}
+};
