@@ -9,6 +9,7 @@ module.exports = {
     remove,
     findUser
 }
+
 function findUser(username) {
     return db('users').where({ username }).first();
 };

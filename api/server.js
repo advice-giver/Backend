@@ -6,7 +6,6 @@ const server = express();
 
 
 const messageRoute = require('../routes/messageRoute.js');
-const postAdvice = require('../routes/postAdviceRoute.js');
 const authRoute = require('../auth/auth-router.js');
 const userRoute = require('../routes/userRouter.js');
 
@@ -19,7 +18,7 @@ server.use(cors());
 server.use('/users', userRoute);
 server.use('/messages', messageRoute);
 server.use('/auth', authRoute);
-server.use('/advice', postAdvice);
+
 
 
 module.exports = server;
