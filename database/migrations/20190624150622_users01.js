@@ -3,9 +3,11 @@ exports.up = function(knex, Promise) {
       tbl.increments();
       tbl.string('username').notNullable().unique(); //cant have spaces in the username
       tbl.string('password').notNullable();
-      tbl.boolean('adviceGiver').notNullable(); //.defaultTo(false)
+      tbl.boolean('adviceGiver').notNullable(); //default to false
       tbl.string('expertise').nullable();
       tbl.integer('yearsOfExperience').nullable();
+      tbl.integer('age').nullable();
+      tbl.string('email').notNullable();
     })
   };
   

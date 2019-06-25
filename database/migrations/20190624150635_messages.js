@@ -14,6 +14,7 @@ exports.up = function(knex, Promise) {
         .onUpdate('CASCADE');
         tbl.string('type').notNullable();
         tbl.string('title').notNullable();
+        tbl.boolean('isAnswered').notNullable();
 
     })
 };
