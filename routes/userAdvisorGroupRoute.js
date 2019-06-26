@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const restricted = require('../auth/restricted.js');
-const userAGR = require('../routes/userAdvisorGroupRoute.js');
+const userAGR = require('../models/userAdvisorGroups.js');
 
 
-router.post('/', restricted, (req, res) => {
+router.post('/', (req, res) => {
     //need req.body to contain the userID of the seeker and the userID of the advice giver..
     if (req.body.adviceGiver !== 0) {
         res.status(400).json({ message: 'You need to be a advice seeker to add advice givers to the group.'})
@@ -19,7 +19,8 @@ router.post('/', restricted, (req, res) => {
 });
 
 
-router.delete('/', restricted, (req, res) => {
+router.delete('/:id', (req, res) => {
+    const id = req.body.advisor_id;
 
     if (!req.body.seeker_id || !req.body.advisor_id) {
         res.status(400).json({ message: 'The request needs the seeker id and the advisor id.'})
@@ -35,6 +36,19 @@ router.delete('/', restricted, (req, res) => {
     }
 });
 
+router.get('/:id', (req, res) => {
+    const seeker_id = req.params.id;
+
+    userAGR
+        .findBySeekerId(seeker_id)
+        .then(result => {
+            res.json(result)
+        })
+        .catch(error => {
+            console.error(error)
+            res.status(500).json({ message: 'Internal Server Error.'})
+        })
+})
 
 
 
