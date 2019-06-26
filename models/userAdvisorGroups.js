@@ -5,9 +5,14 @@ module.exports = {
     find,
     remove,
     findById,
-    findBySeekerId
+    findBySeekerId,
+    findAllAdvisors
 
 }
+
+function findAllAdvisors(){
+    return db('users')
+};
 
 function add(users) {
     return db('advisorsGroup').insert(users)
@@ -32,7 +37,6 @@ async function findBySeekerId(seeker_id) {
 
     let advisorList = [];
     for (let i = 0; i < users.length; i++) {
-        console.log(users[i].advisor_id)
         let adviceGiver = await findById(users[i].advisor_id);
         advisorList.push(adviceGiver)
     }
