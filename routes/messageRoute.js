@@ -22,7 +22,7 @@ router.post('/', restricted, (req, res) => {
 
 
 //edit works..
-router.put('/:id', restricted, (req, res) => { 
+router.put('/:id', (req, res) => { 
     const id = req.params.id; //message id.  
   
     messageModel    
@@ -39,7 +39,7 @@ router.put('/:id', restricted, (req, res) => {
 
 
 //delete works..
-router.delete('/:id', restricted, (req, res) => {
+router.delete('/:id', (req, res) => {
     const id = req.params.id; //id of message
     messageModel
     .remove(id)
@@ -51,7 +51,7 @@ router.delete('/:id', restricted, (req, res) => {
     })
 })
 
-router.get('/', restricted,  (req, res) => {
+router.get('/',  (req, res) => {
     //check to make sure the user is a advice giver first.....
     //if user is a giver than and has token for restricted middleware
     //then allow access to all messages that aren't private.  
@@ -67,7 +67,7 @@ router.get('/', restricted,  (req, res) => {
 
 
 //works
-router.get('/:id', restricted, (req, res) => {
+router.get('/:id', (req, res) => {
     const id = req.params.id;
 
     messageModel
