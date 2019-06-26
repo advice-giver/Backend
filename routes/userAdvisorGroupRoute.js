@@ -5,9 +5,6 @@ const userAGR = require('../models/userAdvisorGroups.js');
 
 router.post('/', (req, res) => {
     //need req.body to contain the userID of the seeker and the userID of the advice giver..
-    if (req.body.adviceGiver !== 0) {
-        res.status(400).json({ message: 'You need to be a advice seeker to add advice givers to the group.'})
-    }
     if (!req.body.seeker_id || !req.body.advisor_id) {
         res.status(400).json({ message: 'The request needs the seeker id and the advisor id.'})
     }
@@ -50,6 +47,20 @@ router.get('/:id', (req, res) => {
         })
 })
 
+
+router.get('/', (req, res) => {
+    userAGR
+    .findAllAdvisors()
+    .then(results => {
+        const advisors = results.filter(user => {
+            return user.adviceGiver === true;
+        })
+        res.status(200).json(results);
+    })
+    .catch(error => {
+        res.status(500).json({ message: 'Internal Server Error'})
+    })
+})
 
 
 
