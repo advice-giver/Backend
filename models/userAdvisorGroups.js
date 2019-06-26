@@ -2,7 +2,6 @@ const db = require('../database/dbConfig.js');
 
 module.exports = {
     add,
-    find,
     remove,
     findById,
     findBySeekerId,
@@ -13,7 +12,6 @@ module.exports = {
 async function findAllAdvisors(){
     const table = await db('users');
     const advisors = await table.filter(user => {
-        console.log(user)
         return user.adviceGiver === true
     })
     return advisors;
@@ -23,9 +21,9 @@ function add(users) {
     return db('advisorsGroup').insert(users)
 };
 
-async function find(user) {
-    let table = await db('advisorsGroup')
-};
+// async function find(user) {
+//     let table = await db('advisorsGroup')
+// };
 
 async function remove(user) {
     let table = await db('advisorsGroup')
