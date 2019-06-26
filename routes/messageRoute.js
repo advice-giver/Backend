@@ -4,7 +4,7 @@ const restricted = require('../auth/restricted.js');
 
 //route is /messages
 
-router.post('/', restricted, (req, res) => {
+router.post('/', (req, res) => {
     //need user.id of who is posting and whether message is private, message.
     const user_id = req.body.user_id; //gives the id of the user.  
     if (!req.body.message || !req.body.user_id) {
@@ -74,6 +74,18 @@ router.get('/:id', (req, res) => {
     .getByUserId(id)
     .then(result => {
         res.json(result)
+    })
+    .catch(error => {
+        res.status(500).json({ message: 'Internal Server Error'})
+    })
+})
+
+router.get('/announcements', (req, res) => {
+
+    messageModel
+    .getAnnouncemnets()
+    .then(result => {
+        res.status(200).json(result)
     })
     .catch(error => {
         res.status(500).json({ message: 'Internal Server Error'})
