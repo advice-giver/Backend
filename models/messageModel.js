@@ -7,7 +7,7 @@ module.exports = {
     remove,
     findAll,
     findByMessageId,
-    getByUserId
+    getByUserId,
 }
 
 function add(message) {
@@ -43,7 +43,6 @@ async function findAll() {
 function getByUserId(user_id) {
     return db('messages').where({ user_id })
 }
-
 
 // async function findPrivateForAdvisors {
    
