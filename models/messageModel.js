@@ -43,3 +43,8 @@ async function findAll() {
 function getByUserId(user_id) {
     return db('messages').where({ user_id })
 }
+
+
+// async function findPrivateForAdvisors {
+   
+// }

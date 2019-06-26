@@ -14,13 +14,13 @@ router.get('/', restricted, (req, res) => {
         res.status(500).json({ message: 'Internal Server Error'})
     })
 })
-
+//works
 router.get('/:id', restricted, (req, res) => {
     const id = req.params.id;
 
     userModel
     .findById(id)
-    .then(reuslt => {
+    .then(result => {
         res.json(result)
     })
     .catch(error => {
