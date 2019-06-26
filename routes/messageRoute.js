@@ -58,8 +58,7 @@ router.get('/', restricted,  (req, res) => {
     messageModel
     .findAll()
     .then(result => {
-        //spread in result into new obj and return array of advice for those messages.
-        res.json(result)
+        res.status(200).json(result)
     })
     .catch(error => {
         res.status(500).json({ message: 'Internal Server Error'})
@@ -67,7 +66,7 @@ router.get('/', restricted,  (req, res) => {
 })
 
 
-//gets the messages by the user in order to display for the user logged in...
+//works
 router.get('/:id', restricted, (req, res) => {
     const id = req.params.id;
 
@@ -83,7 +82,7 @@ router.get('/:id', restricted, (req, res) => {
 
 
 
-// need another router that gets the messages that are priate from users which have the advisor as an advisor group...
+// need another router that gets the messages that are private from users which have the advisor as an advisor group...
 
 
 module.exports = router;
