@@ -10,8 +10,13 @@ module.exports = {
 
 }
 
-function findAllAdvisors(){
-    return db('users')
+async function findAllAdvisors(){
+    const table = await db('users');
+    const advisors = await table.filter(user => {
+        console.log(user)
+        return user.adviceGiver === true
+    })
+    return advisors;
 };
 
 function add(users) {
