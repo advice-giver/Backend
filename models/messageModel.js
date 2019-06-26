@@ -34,7 +34,7 @@ function findByMessageId(id) {
 async function findAll() {
     let messages = await db('messages')
     let notPrivate = await messages.filter(item => {
-        return item.private === 0;
+        return item.private === false;
     })
 
     return notPrivate; //returns all messages that are not marked as private!!!
