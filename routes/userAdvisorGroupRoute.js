@@ -52,9 +52,6 @@ router.get('/', (req, res) => {
     userAGR
     .findAllAdvisors()
     .then(results => {
-        const advisors = results.filter(user => {
-            return user.adviceGiver === true;
-        })
         res.status(200).json(results);
     })
     .catch(error => {
