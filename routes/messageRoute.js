@@ -80,18 +80,6 @@ router.get('/:id', (req, res) => {
     })
 })
 
-router.get('/announcements', (req, res) => {
-
-    messageModel
-    .getAnnouncemnets()
-    .then(result => {
-        res.status(200).json(result)
-    })
-    .catch(error => {
-        res.status(500).json({ message: 'Internal Server Error'})
-    })
-})
-
 
 
 // need another router that gets the messages that are private from users which have the advisor as an advisor group...
