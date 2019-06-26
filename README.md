@@ -49,7 +49,7 @@ TABLE           METHOD          ENDPOINT           Description
 
 auth            post            auth/register       used to register user, need user obj.
 
-auth            post            auth/login          used to login, uses username and                                                            password, sent in the body of request                                                       to authenticate
+auth            post            auth/login          used to login, uses username and                                                                                         password, sent in the body of request to authenticate
 
 users           get             /users              gets a list of users
 
@@ -57,12 +57,18 @@ users           get             /users/id            gets the user by the user i
 
 users           put             /users/id           updates the user with the user id.
 
-users           delete          /users/id           deletes the user form database with the                                                     id.
+users           delete          /users/id           deletes the user form database with the id.
 
 messages        get             /messages           gets list of messages not set to private
 
-messages        post            /messages           posts message with above messages obj                                                       supplied
+messages        post            /messages           posts message with above messages obj supplied
 
 messages        put             /messages/id        updates message with the message id.
 
-messages        delete          /messages/id        deletes the message from the database                                                       with the id
+messages        delete          /messages/id        deletes the message from the database with the id
+
+advisorsGroup   get             /myMentors/id         returns all of the currently loged in
+
+advisorsGroup   get             /myMentors          return a list of all the users who are advisors.
+
+advisorsGroup   post            /myMentors          ability for user to add an advice giver as a mentor.  needs { advisor_id and seeker_id }
