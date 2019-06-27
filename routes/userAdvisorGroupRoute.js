@@ -16,22 +16,21 @@ router.post('/', (req, res) => {
 });
 
 
-router.delete('/:id', (req, res) => {
-    const id = req.body.advisor_id;
-
-    if (!req.body.seeker_id || !req.body.advisor_id) {
-        res.status(400).json({ message: 'The request needs the seeker id and the advisor id.'})
+// router.delete('/:id', (req, res) => {
+//     const id = req.body.advisor_id;
+//     if (!req.body.seeker_id || !req.body.advisor_id) {
+//         res.status(400).json({ message: 'The request needs the seeker id and the advisor id.'})
     
-    userAGR
-        .remove(id)
-        .then(result => {
-            res.json(result)
-        })
-        .catch(error => {
-            res.status(500).json({ message: 'Internal Server Error.'})
-        })
-    }
-});
+//     userAGR
+//         .remove(id, req.body.seeker_id)
+//         .then(result => {
+//             res.json(result)
+//         })
+//         .catch(error => {
+//             res.status(500).json({ message: 'Internal Server Error.'})
+//         })
+//     }
+// });
 
 router.get('/:id', (req, res) => {
     const seeker_id = req.params.id;

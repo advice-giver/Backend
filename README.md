@@ -67,8 +67,10 @@ messages        put             /messages/id        updates message with the mes
 
 messages        delete          /messages/id        deletes the message from the database with the id
 
-advisorsGroup   get             /myMentors/id         returns all of the currently loged in
+advisorsGroup   get             /myMentors/id         returns all of the currently logged in users mentors. takes id of user logged in.
 
 advisorsGroup   get             /myMentors          return a list of all the users who are advisors.
 
 advisorsGroup   post            /myMentors          ability for user to add an advice giver as a mentor.  needs { advisor_id and seeker_id }
+
+announcements  get             /announcements      return a string of announcements
