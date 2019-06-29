@@ -17,8 +17,14 @@ function add(message) {
 function update(changes, id) {
     return db('messages').where({ id }).update(changes);
 }
-function remove(id) {
-    return db('messages').where({ id }).del();
+async function remove(id) {
+    await db('messages').where({ id }).del();
+    let messages = await db('messages')
+    let notPrivate = await messages.filter(item => {
+        return item.private === false;
+    })
+
+    return notPrivate;
 };
 
 // function find() {  I need to find by foreign key of the user who posted.....
