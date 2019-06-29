@@ -4,7 +4,7 @@ const restricted = require('../auth/restricted.js');
 
 //route is /messages
 
-router.post('/', (req, res) => {
+router.post('/', restricted, (req, res) => {
     //need user.id of who is posting and whether message is private, message.
     const user_id = req.body.user_id; //gives the id of the user.  
     if (!req.body.message || !req.body.user_id) {
@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
 
 
 //edit works..
-router.put('/:id', (req, res) => { 
+router.put('/:id', restricted, (req, res) => { 
     const id = req.params.id; //message id.  
   
     messageModel    
@@ -39,7 +39,7 @@ router.put('/:id', (req, res) => {
 
 
 //delete works..
-router.delete('/:id', (req, res) => {
+router.delete('/:id', restricted, (req, res) => {
     const id = req.params.id; //id of message
     messageModel
     .remove(id)
@@ -51,7 +51,7 @@ router.delete('/:id', (req, res) => {
     })
 })
 
-router.get('/',  (req, res) => {
+router.get('/', restricted, (req, res) => {
     //check to make sure the user is a advice giver first.....
     //if user is a giver than and has token for restricted middleware
     //then allow access to all messages that aren't private.  
@@ -67,7 +67,7 @@ router.get('/',  (req, res) => {
 
 
 //works
-router.get('/:id', (req, res) => {
+router.get('/:id', restricted, (req, res) => {
     const id = req.params.id;
 
     messageModel

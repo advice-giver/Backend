@@ -3,7 +3,7 @@ const restricted = require('../auth/restricted.js');
 const userAGR = require('../models/userAdvisorGroups.js');
 
 
-router.post('/', (req, res) => {
+router.post('/', restricted, (req, res) => {
     //need req.body to contain the userID of the seeker and the userID of the advice giver..
     if (!req.body.seeker_id || !req.body.advisor_id) {
         res.status(400).json({ message: 'The request needs the seeker id and the advisor id.'})
@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
 //     }
 // });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', restricted, (req, res) => {
     const seeker_id = req.params.id;
 
     userAGR
@@ -47,7 +47,7 @@ router.get('/:id', (req, res) => {
 })
 
 
-router.get('/', (req, res) => {
+router.get('/', restricted, (req, res) => {
     userAGR
     .findAllAdvisors()
     .then(results => {

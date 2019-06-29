@@ -3,7 +3,7 @@ const aM = require('../models/announcementModel.js');
 const restricted = require('../auth/restricted.js');
 
 
-router.get('/', (req, res) => {
+router.get('/', restricted, (req, res) => {
 
     aM.getAnnouncements()
     .then(result => {
