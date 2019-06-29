@@ -44,7 +44,14 @@ router.delete('/:id', restricted, (req, res) => {
     messageModel
     .remove(id)
     .then(result => {
-        res.status(200).json(result)
+        messageModel
+        .findAll()
+        .then(result => {
+            res.status(200).json(result)
+        })
+        .catch(error => {
+            res.status(500).json({ message: 'Internal Server Error.'})
+         } )
     })
     .catch(error => {
         res.status(500).json({ message: 'Internal Server Error.'})
