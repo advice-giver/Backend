@@ -4,7 +4,7 @@ const restricted = require('../auth/restricted.js')
 //users path..
 
 //works
-router.get('/',  (req, res) => {
+router.get('/', restricted, (req, res) => {
     userModel
     .findAll()
     .then(result => {
@@ -15,7 +15,7 @@ router.get('/',  (req, res) => {
     })
 })
 //works
-router.get('/:id',  (req, res) => {
+router.get('/:id', restricted, (req, res) => {
     const id = req.params.id;
 
     userModel
@@ -29,7 +29,7 @@ router.get('/:id',  (req, res) => {
     })
 })
 //works
-router.put('/:id',  (req, res) => {
+router.put('/:id', restricted, (req, res) => {
     const id = req.params.id;
     
     userModel
@@ -42,7 +42,7 @@ router.put('/:id',  (req, res) => {
     })
 })
 //works
-router.delete('/:id',  (req, res) => {
+router.delete('/:id', restricted, (req, res) => {
     const id = req.params.id;
 
 
