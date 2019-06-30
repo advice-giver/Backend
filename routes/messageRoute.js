@@ -7,8 +7,8 @@ const restricted = require('../auth/restricted.js');
 router.post('/', restricted, (req, res) => {
     //need user.id of who is posting and whether message is private, message.
     const user_id = req.body.user_id; //gives the id of the user.  
-    if (!req.body.message || !req.body.user_id) {
-        return res.status(400).json({ message: 'message is missing private boolean || message || id of poster.'})
+    if (req.body.message.length === 0 || !req.body.message || !req.body.user_id || !req.body.type) {
+        return res.status(400).json({ message: 'message is missing necessary information'})
     } //boolean may need to be sent from client via a one or zero....
     messageModel
         .add(req.body)
