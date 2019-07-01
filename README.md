@@ -59,7 +59,7 @@ users      |     get      |       /users/id      |      gets the user by the use
 
 users      |     put       |      /users/id       |    updates the user with the user id.   |
 
-users       |    delete     |     /users/id     |      deletes the user form database with the id.  |
+users       |    delete     |     /users/id     |      deletes the user form database with the id.   |
 
 messages    |    get        |     /messages      |     gets list of messages not set to private  |
 
@@ -67,7 +67,7 @@ messages    |    post      |      /messages      |    posts message with above m
 
 messages    |    put        |     /messages/id    |    updates message with the message id.   |
 
-messages    |    delete     |     /messages/id    |    deletes the message from the database with the id    |
+messages    |    delete     |     /messages/id    |    deletes the message from the database with the id and returns a new array of messages.    |
 
 advisorsGroup  | get       |      /myMentors/id     |    returns all of the currently logged in users mentors. takes id of user logged in.  |
 
