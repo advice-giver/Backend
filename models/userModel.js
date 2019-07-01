@@ -18,8 +18,9 @@ function add(user) {
     return db('users').insert(user);
 };
 
-function update(id, changes) {
-    return db('users').where({ id }).update(changes);
+async function update(id, changes) {
+    await db('users').where({ id }).update(changes);
+    return db('users').where({ id }).first();
 };
 
 function remove(id) {
