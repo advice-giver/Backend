@@ -57,7 +57,7 @@ users      |     get       |      /users         |     gets a list of users  |
 
 users      |     get      |       /users/id      |      gets the user by the user id    |
 
-users      |     put       |      /users/id       |    updates the user with the user id.   |
+users      |     put       |      /users/id       |    updates the user with the user id.  returns the user info.  |
 
 users       |    delete     |     /users/id     |      deletes the user form database with the id.   |
 
