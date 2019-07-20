@@ -1,10 +1,10 @@
-##Backend Architect\*\*
+##Backend Architect
 
-##Back-end Development Role Description\*\*
+##Back-end Development Role Description
 
 You have been learning all about NodeJS and Express and SQL in order to craft Web Servers and build API's for consumption by client side applications. You will use these skills to be in charge of building out the back-end API for your project.
 
-##Data Schema (Data Structures)\*\*
+##Data Schema (Data Structures)
 
 #### users
 
@@ -28,9 +28,9 @@ You have been learning all about NodeJS and Express and SQL in order to craft We
 
 ```
 {
-    "id": 1 //integer and autoincremented in database
-    "isAnswered": true or false //boolean, requied
-    "private": true or false //boolean, requied
+    "id": 1 //integer, auto incremented in database
+    "isAnswered": true or false //boolean, required
+    "private": true or false //boolean, required
     "message": "here is what I need help with" //string, required
     "type": "Counseling" //string, required
     "title": "The title of the message" //string, required
@@ -49,7 +49,7 @@ You have been learning all about NodeJS and Express and SQL in order to craft We
 }
 ```
 
-##SUMMARY TABLE OF API ENDPOINTS\*\*
+##SUMMARY TABLE OF API ENDPOINTS
 
 | **TABLE**     | **METHOD** | **ENDPOINT**   | **Description**                                                                         |
 | ------------- | ---------- | -------------- | --------------------------------------------------------------------------------------- |
