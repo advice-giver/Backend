@@ -54,7 +54,11 @@ You have been learning all about NodeJS and Express and SQL in order to craft We
 | **TABLE**     | **METHOD** | **ENDPOINT**   | **Description**                                                                         |
 | ------------- | ---------- | -------------- | --------------------------------------------------------------------------------------- |
 | auth          | post       | auth/register  | used to register user, need user obj.                                                   |
-| auth          | post       | auth/login     | used to login, uses username and password, sent in the body of request to authenticate  |
+| auth          | post       | auth/login     | used to login, uses username and password, sent in the body of request to authenticate  | { "username": "whatever", "password":"whatever" }
+
+*** After user logs in, requests must include the token received back on the user login object.  Token is at key "token".  All requests below must include an "Authorization" header, the value of which is the token's value. ***
+
+
 | users         | get        | /users/id      | gets the user by the user id                                                            |
 | users         | get        | /users         | gets a list of users                                                                    |
 | users         | put        | /users/id      | updates the user with the user id.                                                      |
@@ -65,5 +69,5 @@ You have been learning all about NodeJS and Express and SQL in order to craft We
 | messages      | delete     | /messages/id   | deletes the message from the database with the id and returns a new array of messages.  |
 | advisorsGroup | get        | /myMentors/id  | returns all of the currently logged in users mentors. takes id of user logged in.       |
 | advisorsGroup | get        | /myMentors     | return a list of all the users who are advisors.                                        |
-| advisorsGroup | post       | /myMentors     | ability for user to add an advice giver as a mentor. needs { advisor_id and seeker_id } |
+| advisorsGroup | post       | /myMentors     | *this endpoint is not active* ability for user to add an advice giver as a mentor. needs { advisor_id and seeker_id } |
 | announcements | get        | /announcements | return a string of announcements                                                        |
