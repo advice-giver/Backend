@@ -40,6 +40,27 @@ You have been learning all about NodeJS and Express and SQL in order to craft We
 
 #### advisorGroup
 
+
+users      |     put       |      /users/id       |    updates the user with the user id.  returns the user info.  |
+
+users       |    delete     |     /users/id     |      deletes the user form database with the id.   |
+
+messages    |    get        |     /messages      |     gets list of messages not set to private  |
+
+messages    |    post      |      /messages      |    posts message with above messages obj supplied  |
+
+messages    |    put        |     /messages/id    |    updates message with the message id.   |
+
+messages    |    delete     |     /messages/id    |    deletes the message from the database with the id and returns a new array of messages.    |
+
+advisorsGroup  | get       |      /myMentors/id     |    returns all of the currently logged in users mentors. takes id of user logged in.  |
+
+advisorsGroup  |  get       |      /myMentors    |      return a list of all the users who are advisors.   |
+
+advisorsGroup  |  post      |     /myMentors    |      ability for user to add an advice giver as a mentor.  needs { advisor_id and seeker_id }  |
+
+announcements  | get     |        /announcements   |   return a string of announcements  |
+
 ```
 {
     "id": 1 //integer and autoincremented in database
@@ -71,3 +92,4 @@ You have been learning all about NodeJS and Express and SQL in order to craft We
 | advisorsGroup | get        | /myMentors     | return a list of all the users who are advisors.                                        |
 | advisorsGroup | post       | /myMentors     | *this endpoint is not active* ability for user to add an advice giver as a mentor. needs { advisor_id and seeker_id } |
 | announcements | get        | /announcements | return a string of announcements                                                        |
+
